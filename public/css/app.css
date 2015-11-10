@@ -44,7 +44,7 @@ body {
 }
 
 .navigation-image {
-	background-image: url("../assets/spritesheet.png");
+	background-image: url("../../public/assets/spritesheet.png");
 	background-repeat: no-repeat;
 	display: inline-block;
 	height: 35px;
