@@ -1,0 +1,64 @@
+body {
+	border: 1px;
+	margin: 0 20%;
+	overflow: scroll;
+}
+
+.main-body {
+	border-style: groove;
+	margin: 1%;
+	padding: 1%;
+}
+
+.search-form {
+	margin: 1%;
+	padding: 1%;
+}
+
+.results-box {
+	min-height: 650px;
+}
+
+.page-navigation {
+	float: right;
+}
+
+.game-results {
+	list-style-type: none;
+}
+
+.game-row {
+	height: 100px;
+	width: 100px;
+}
+
+.game-image {
+	height: 45px;
+	position: absolute;
+	width: 80px;
+}
+
+.game-data {
+	margin-left: 100px;
+	position: relative;
+}
+
+.navigation-image {
+	background-image: url("../assets/spritesheet.png");
+	background-repeat: no-repeat;
+	display: inline-block;
+	height: 35px;
+	width: 22px;
+}
+
+.previous-image {
+	background-position: -856px 1px;
+}
+
+.next-image {
+	background-position: -159px 0px;
+}
+
+.navigation-number {
+	font-size: 30px;
+}
