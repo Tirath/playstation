@@ -48,7 +48,7 @@ app.setGames = function (data) {
 	app.navigationNumber.textContent = app.getNavigationNumber(total);
 
 	var x = new Date().getTime();
-	app.renderList(data);
+	app.oldRenderList(data);
 	console.log(new Date().getTime() - x);
 };
 
