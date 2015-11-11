@@ -7,6 +7,8 @@ app.getGames = function (query, url) {
 	var callback = "&callback=app.setGames",
 		cacheBuster = "&time=" + new Date().getTime();
 
+	app.error = false;
+
 	app.script = document.createElement('script');
 
 	app.script.type='text/javascript';
@@ -16,6 +18,11 @@ app.getGames = function (query, url) {
 	
 	app.dataInProgress = true;
 	document.body.appendChild(app.script);
+
+	setTimeout(function () {
+		app.error = true;
+		// app.setGames();
+	}, 5000);
 
 	return false;
 };

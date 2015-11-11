@@ -4,7 +4,7 @@ var app = app || {};
 
 (function oldRenderList() {
 
-	var data = app.mockData,
+	/*var data = app.mockData,
 		total = data._total,
 		pageNavigation = document.getElementById("page-navigation"),
 		gameResults = document.getElementById('game-results');
@@ -26,26 +26,42 @@ var app = app || {};
 
 		element.childNodes[1].src = data.streams[i].preview.small;
 		element.childNodes[3].textContent = data.streams[i].channel.display_name;
-	}
+	}*/
 })();
 
-app.oldRenderList = function (data) {
-	var displaySettings,
-		gameResults = document.getElementsByTagName("ul")[0].getElementsByTagName("li");
+/*app.oldRrenderList = function (data) {
+	var displaySettings, li, image, description,
+		docFragment = document.createDocumentFragment();
 
-	for (var i = 0, image, description; i < 5; i++) {
-		displaySettings = "none"
+	var gameResults = document.getElementById("game-results");
+	gameResults.parentNode.removeChild(gameResults);
 
-		image = gameResults[i].childNodes[1];
-		description = gameResults[i].childNodes[3];
+	var ul = document.createElement("ul");
+
+	ul.id = "game-results";
+	ul.classList.add("game-results");
+
+	for (var i = 0; i < 100; i++) {
+
+		li 			= document.createElement("li");
+		image 		= document.createElement("img");
+		description = document.createElement("div");
 
 		if (data.streams[i]) {
-			displaySettings = "block";
-
 			image.src = data.streams[i].preview.small;
-			description.textContent = data.streams[i].channel.display_name;
-		}
+			image.classList.add("game-image");
 
-		gameResults[i].style.display = displaySettings;
+			description.textContent = data.streams[i].channel.display_name;
+			description.classList.add("game-data");
+
+			li.classList.add("game-row");
+			li.appendChild(image);
+			li.appendChild(description);
+
+			docFragment.appendChild(li);
+		}
 	}
-}
+
+	ul.appendChild(docFragment);
+	app.resultsBox.appendChild(ul)
+};*/

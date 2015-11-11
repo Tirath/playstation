@@ -6,6 +6,7 @@ app.currentPage = 0;
 
 app.searchGames = function () {
 	app.currentPage = 1;
+	app.message.style.display = "none";
 	return app.getGames(escape(document.getElementById("search-box").value), false);
 };
 
@@ -30,15 +31,19 @@ app.navigateNextGames = function () {
 app.setGames = function (data) {
 	var total;
 
-	if (!data) {
+	app.data = data;
+	app.dataInProgress = false;
+	total = data ? data._total : 0;
+
+	// document.body.removeChild(app.script);  // remove the script tag
+	
+	if (!total) {
+		app.errorMessage.style.display 	= "block";
+
 		return;
 	}
 
-	app.data = data;
-	document.body.removeChild(app.script);
-	app.dataInProgress = false;
-
-	total = data._total;
+	app.error = false;
 
 	app.currentPage = total ? app.currentPage : total;  // check if streams available
 	
@@ -47,52 +52,37 @@ app.setGames = function (data) {
 	app.totalResults.textContent = total;
 	app.navigationNumber.textContent = app.getNavigationNumber(total);
 
-	var x = new Date().getTime();
-	app.oldRenderList(data);
-	console.log(new Date().getTime() - x);
+	app.renderList(data);
 };
 
 app.renderList = function (data) {
-	var displaySettings, li, image, description,
-		docFragment = document.createDocumentFragment();
+	var gameResults = document.getElementsByTagName("ul")[0].getElementsByTagName("li"),
+		displaySettings, game, description, currentStream;
 
-	var gameResults = document.getElementById("game-results");
-	gameResults.parentNode.removeChild(gameResults);
+	for (var i = 0; i < 5; i++) {
+		displaySettings = "none"
 
-	var ul = document.createElement("ul");
+		currentStream = data.streams[i];
+		game = gameResults[i].getElementsByClassName("game");
 
-	ul.id = "game-results";
-	ul.classList.add("game-results");
+		if (currentStream) {
+			displaySettings = "block";
 
-	for (var i = 0; i < 100; i++) {
+			game[0].src = currentStream.preview.medium;
+			game[1].textContent = currentStream.channel.display_name;
 
-		li 			= document.createElement("li");
-		image 		= document.createElement("img");
-		description = document.createElement("div");
-
-		if (data.streams[i]) {
-			image.src = data.streams[i].preview.small;
-			image.classList.add("game-image");
-
-			description.textContent = data.streams[i].channel.display_name;
-			description.classList.add("game-data");
-
-			li.classList.add("game-row");
-			li.appendChild(image);
-			li.appendChild(description);
-
-			docFragment.appendChild(li);
+			description = "The game, " + currentStream.channel.game + ", was created at" + currentStream.created_at + " and has been viewed by " + currentStream.viewers + ".";
+			game[2].textContent = description;
 		}
-	}
 
-	ul.appendChild(docFragment);
-	app.resultsBox.appendChild(ul)
-}
+		gameResults[i].style.display = displaySettings;
+	}
+};
 
 app.disableButtons = function (total) {
 	app.previousImage.disabled = !app.data._links.prev;
 	app.nextImage.disabled = app.currentPage === Math.ceil(total/5);
-}
+};
 
 app.getNavigationNumber = function (total) {
 	return app.currentPage + "/" + Math.ceil(total/5);

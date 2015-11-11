@@ -17,54 +17,89 @@
 		<div class="main-body">
 			
 			<!-- Search form -->
-			<h1>
+			<div>
 				<form id="search-form" class="search-form" onsubmit="return app.searchGames()">
-					<input id="search-box" placeholder="Search query..." required >
-					<button>Search</button>
+					<input id="search-box" class="search-box" placeholder="Search query..." required >
+					<button class="search-button">Search</button>
 				</form>
-			</h1>
+			</div>
 			
 			<hr>
 
 			<!-- Results box -->
 			<div id="results-box" class="results-box">
-				<span>
-					Total results: 
-					<span id="total-results"></span>
-				</span>
-				<span id="page-navigation" class="page-navigation">
-					<button id="previous-image" class="navigation-image previous-image" onclick="return app.navigatePreviousGames()"></button>
-					<span id="navigation-number" class="navigation-number">1/10</span>
-					<button id="next-image" class="navigation-image next-image" onclick="return app.navigateNextGames()"></button>
-				</span>
+				<!-- Empty search message -->
+				<div id="message" class="message">
+					Search for any game and we'll get you here
+				</div>
 
-				<!-- Final results -->
-				<ul id="game-results" class="game-results">
-					<li class="game-row">
-						<img src="" class="game-image">
-						<div class="game-data"></div>
-					</li>
-					
-					<li class="game-row">
-						<img src="" class="game-image">
-						<div class="game-data"></div>
-					</li>
+				<!-- Error message -->
+				<div id="error-message" class="error-message hide">
+					Oops, something went wrong :( Please try again with a different query
+				</div>
 
-					<li class="game-row">
-						<img src="" class="game-image">
-						<div class="game-data"></div>
-					</li>
+				<!-- Results -->
+				<div id="results" class="results">
 
-					<li class="game-row">
-						<img src="" class="game-image">
-						<div class="game-data"></div>
-					</li>
+					<!-- Results information -->
+					<div class="total-text">
+						Total results: 
+						<span id="total-results"></span>
+					</div>
+					<div id="page-navigation" class="page-navigation">
+						<input id="previous-image" class="navigation-image previous-image" onclick="return app.navigatePreviousGames()"></input>
+						<span id="navigation-number" class="navigation-number"></span>
+						<input id="next-image" class="navigation-image next-image" onclick="return app.navigateNextGames()"></input>
+					</div>
 
-					<li class="game-row">
-						<img src="" class="game-image">
-						<div class="game-data"></div>
-					</li>
-				</ul>  
+					<!-- Results streams -->
+					<ul id="game-results" class="game-results">
+						<li class="game-row hide">
+							<img src="" class="game game-image">
+							<div class="game-data">
+								<span>Game name - </span>
+								<span class="game game-name"></span>
+								<div class="game game-description"></div>
+							</div>
+						</li>
+						
+						<li class="game-row hide">
+							<img src="" class="game game-image">
+							<div class="game-data">
+								<span>Game name - </span>
+								<span class="game game-name"></span>
+								<div class="game game-description"></div>
+							</div>
+						</li>
+
+						<li class="game-row hide">
+							<img src="" class="game game-image">
+							<div class="game-data">
+								<span>Game name - </span>
+								<span class="game game-name"></span>
+								<div class="game game-description"></div>
+							</div>
+						</li>
+
+						<li class="game-row hide">
+							<img src="" class="game game-image">
+							<div class="game-data">
+								<span>Game name - </span>
+								<span class="game game-name"></span>
+								<div class="game game-description"></div>
+							</div>
+						</li>
+
+						<li class="game-row hide">
+							<img src="" class="game game-image">
+							<div class="game-data">
+								<span>Game name - </span>
+								<span class="game game-name"></span>
+								<div class="game game-description"></div>
+							</div>
+						</li>
+					</ul>
+				</div>
 			</div>
 		</div>
 
