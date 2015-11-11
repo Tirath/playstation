@@ -57,13 +57,14 @@ app.setGames = function (data) {
 
 app.renderList = function (data) {
 	var gameResults = document.getElementsByTagName("ul")[0].getElementsByTagName("li"),
-		displaySettings, game, description, currentStream;
+		displaySettings, game, description, currentStream, gameLink;
 
 	for (var i = 0; i < 5; i++) {
 		displaySettings = "none"
 
 		currentStream = data.streams[i];
 		game = gameResults[i].getElementsByClassName("game");
+		gameLink = gameResults[i].getElementsByTagName("a");
 
 		if (currentStream) {
 			displaySettings = "block";
@@ -73,6 +74,8 @@ app.renderList = function (data) {
 
 			description = "The game, " + currentStream.channel.game + ", was created at" + currentStream.created_at + " and has been viewed by " + currentStream.viewers + ".";
 			game[2].textContent = description;
+
+			gameLink[0].href = currentStream.channel.url
 		}
 
 		gameResults[i].style.display = displaySettings;
