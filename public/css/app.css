@@ -29,6 +29,10 @@ input:focus {
     box-shadow: 0 0 5px 1px #4AAAA0;
 }
 
+a { 
+    text-decoration: none;
+}
+
 .main-body {
     border-radius: 10px;
     border-style: groove;
