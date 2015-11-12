@@ -133,7 +133,7 @@ input:focus {
 	font-size: 30px;
 }
 
-@media only screen and (max-device-width: 720px) {
+@media only screen and (max-device-width: 1048px) {
 	body {
 		margin: 1%;
 	}
