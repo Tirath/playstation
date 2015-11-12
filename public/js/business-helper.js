@@ -40,6 +40,9 @@ app.ps = {
 	events: {},
 
 	subscribe: function (event, func) {
+		
+		if (typeof func !== "function") return;
+		
 		if (!this.events[event]) {
 			this.events[event] = [];
 		}
@@ -63,9 +66,7 @@ app.ps = {
 	publish: function (event, data) {
 		if (this.events[event]) {
 			this.events[event].forEach(function(func) {
-				if (typeof func === "function") {
-					func(data || {});
-				}
+				func(data || {});
 			});
 		}
 	}
