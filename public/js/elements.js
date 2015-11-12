@@ -2,6 +2,9 @@
 
 var app = app || {};
 
+/*
+ * saving some page elements which are frequently interacting with the users
+ */
 app.navigationNumber 	= document.getElementById("navigation-number");
 app.totalResults 		= document.getElementById("total-results");
 app.resultsBox	 		= document.getElementById("results-box");

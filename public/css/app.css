@@ -1,7 +1,7 @@
 body {
-	border: 1px;
-	margin: 0 20%;
-	overflow: scroll;
+    border: 1px;
+    margin: 0 20%;
+    overflow: scroll;
 }
 
 button {
@@ -14,13 +14,13 @@ button {
 }
 
 button:hover {
-	cursor: pointer;
+    cursor: pointer;
 }
 
 input {
     border: solid 1px #2066A1;
     border-radius: 2px;
-	padding: 10px;
+    padding: 10px;
 }
 
 input:focus { 
@@ -30,40 +30,40 @@ input:focus {
 }
 
 .main-body {
-	border-radius: 10px;
-	border-style: groove;
-	margin: 1%;
-	padding: 1%;
+    border-radius: 10px;
+    border-style: groove;
+    margin: 1%;
+    padding: 1%;
 }
 
 .hide {
-	display: none;
+    display: none;
 }
 
 .search-form {
-	margin: 1%;
-	padding: 1%;
+    margin: 1%;
+    padding: 1%;
 }
 
 .search-box {
-	font-size: 14px;
+    font-size: 14px;
     width: 400px;
 }
 
 .search-button {
-	margin-left: -80px;
+    margin-left: -80px;
 }
 
 .error-message {
-	color: #FF0000;
+    color: #FF0000;
 }
 
 .results-box {
-	min-height: 700px;
+    min-height: 700px;
 }
 
 .message {
-	display: block;
+    display: block;
 }
 
 .total-text {
@@ -73,104 +73,62 @@ input:focus {
 }
 
 .page-navigation {
-	float: right;
+    float: right;
 }
 
 .game-results {
-	list-style-type: none;
-	margin: 2%;
-	padding-top: 8%;
+    list-style-type: none;
+    margin: 2%;
+    padding-top: 8%;
 }
 
 .game-row {
-	height: 120px;
+    height: 120px;
 }
 
 .game-image {
-	height: 90px;
-	position: absolute;
-	width: 160px;
+    height: 90px;
+    position: absolute;
+    width: 160px;
 }
 
 .game-data {
-	margin-left: 180px;
-	position: relative;
+    margin-left: 180px;
+    position: relative;
 }
 
 .navigation-image {
-	background: #4AAAA0;
-	background-image: url("../../public/assets/spritesheet.png");
+    background: #4AAAA0;
+    background-image: url("../../public/assets/spritesheet.png");
     border: solid 0 #e3edf4;
     border-bottom: 3px solid #4AAAA0;
     border-radius: 12px;
-	color: transparent;
+    color: transparent;
     font-size: 18px;
-	height: 5px;
-	text-shadow: 0 0 0 red;
-	width: 0px;
+    height: 5px;
+    text-shadow: 0 0 0 red;
+    width: 0px;
 }
 
 .navigation-image:hover {
-	cursor: pointer;
+    cursor: pointer;
 }
 
 .navigation-number {
     color: #0066FF;;
     display: inline-block;
-	min-width: 100px;
+    min-width: 100px;
     text-align: center;
 }
 
 .previous-image {
-	background-position: 0px -2px;
+    background-position: 0px -2px;
 }
 
 .next-image {
-	background-position: -17px -2px;
+    background-position: -17px -2px;
 }
 
 .navigation-number {
-	font-size: 30px;
+    font-size: 30px;
 }
-
-@media only screen and (max-device-width: 1048px) {
-	body {
-		margin: 1%;
-	}
-
-	.search-box {
-	    width: 90%;
-	}
-
-	.results-box {
-		min-height: 900px;
-	}
-
-	.total-text {
-    	font-size: 20px;
-	}
-
-	.navigation-number {
-	    font-size: 20px;
-	    min-width: 50px;
-	}
-
-	.game-results {
-		padding-left: 1%;
-		padding-top: 80px;
-	}
-
-	.game-row {
-    	height: 170px;
-	}
-
-	.game-data {
-		margin-left: 100px;
-	}
-
-	.game-image {
-	    height: 45px;
-	    width: 80px;
-	}
-}
-
