@@ -74,7 +74,6 @@ input:focus {
 
 .page-navigation {
 	float: right;
-	max-height: 34px;
 }
 
 .game-results {
@@ -133,3 +132,45 @@ input:focus {
 .navigation-number {
 	font-size: 30px;
 }
+
+@media only screen and (max-device-width: 720px) {
+	body {
+		margin: 1%;
+	}
+
+	.search-box {
+	    width: 90%;
+	}
+
+	.results-box {
+		min-height: 900px;
+	}
+
+	.total-text {
+    	font-size: 20px;
+	}
+
+	.navigation-number {
+	    font-size: 20px;
+	    min-width: 50px;
+	}
+
+	.game-results {
+		padding-left: 1%;
+		padding-top: 80px;
+	}
+
+	.game-row {
+    	height: 170px;
+	}
+
+	.game-data {
+		margin-left: 100px;
+	}
+
+	.game-image {
+	    height: 45px;
+	    width: 80px;
+	}
+}
+

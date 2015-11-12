@@ -4,10 +4,10 @@ var app = app || {};
 
 app.getGames = function (query, url) {
 
+	if (!query && !url) return;
+
 	var callback = "&callback=app.response",
 		cacheBuster = "&time=" + new Date().getTime();
-
-	app.error = false;
 
 	app.script = document.createElement('script');
 
@@ -22,7 +22,7 @@ app.getGames = function (query, url) {
 	document.body.appendChild(app.script);
 
 	app.jsonpTimer = setTimeout(function () {
-		app.response();
+		app.response({});
 	}, 5000);
 
 	return false;

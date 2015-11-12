@@ -4,7 +4,7 @@ var app = app || {};
 
 (function oldRenderList() {
 
-	/*var data = app.mockData,
+	var data = app.mockData,
 		total = data._total,
 		pageNavigation = document.getElementById("page-navigation"),
 		gameResults = document.getElementById('game-results');
@@ -26,10 +26,10 @@ var app = app || {};
 
 		element.childNodes[1].src = data.streams[i].preview.small;
 		element.childNodes[3].textContent = data.streams[i].channel.display_name;
-	}*/
+	}
 })();
 
-/*app.oldRrenderList = function (data) {
+/*app.oldReenderList = function (data) {
 	var displaySettings, li, image, description,
 		docFragment = document.createDocumentFragment();
 
