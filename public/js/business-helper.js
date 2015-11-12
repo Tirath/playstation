@@ -4,7 +4,7 @@ var app = app || {};
 
 app.getGames = function (query, url) {
 
-	var callback = "&callback=app.setGames",
+	var callback = "&callback=app.response",
 		cacheBuster = "&time=" + new Date().getTime();
 
 	app.error = false;
@@ -17,12 +17,49 @@ app.getGames = function (query, url) {
 	app.script.src = app.script.src + callback + cacheBuster;
 	
 	app.dataInProgress = true;
+	app.ps.subscribe("onData", app.setGames);
+
 	document.body.appendChild(app.script);
 
-	setTimeout(function () {
-		app.error = true;
-		// app.setGames();
+	app.jsonpTimer = setTimeout(function () {
+		app.response();
 	}, 5000);
 
 	return false;
+};
+
+app.ps = {
+
+	events: {},
+
+	subscribe: function (event, func) {
+		if (!this.events[event]) {
+			this.events[event] = [];
+		}
+
+		if (this.events[event].indexOf(func) === -1) {
+			this.events[event].push(func);
+		}
+	},
+
+	unsubscribe: function (event, func) {
+		var index, array;
+
+		if (this.events[event]) {
+			array = this.events[event];
+			index = array.indexOf(func);
+			array.splice(index, 1);
+
+		}
+	},
+
+	publish: function (event, data) {
+		if (this.events[event]) {
+			this.events[event].forEach(function(func) {
+				if (typeof func === "function") {
+					func(data || {});
+				}
+			});
+		}
+	}
 };
