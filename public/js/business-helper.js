@@ -12,7 +12,7 @@ app.getGames = function (query, url) {
 	var callback = "&callback=app.response",
 		cacheBuster = "&time=" + new Date().getTime();  // prevent cache issue if any
 
-	app.script = document.createElement('script');
+	app.script = document.createElement(app.constants.script);
 
 	app.script.type='text/javascript';
 	app.script.src = url || "https://api.twitch.tv/kraken/search/streams?limit=5&offset=0&query=" + query;  // search or pagination

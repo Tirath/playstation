@@ -10,6 +10,7 @@ app.constants = {
 	div		: "div",
 	img		: "img",
 	a 		: "a",
+	script	: "script",
 	hide	: "none",
 	show	: "block"
 };
