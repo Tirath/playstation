@@ -14,3 +14,5 @@ app.constants = {
 	hide	: "none",
 	show	: "block"
 };
+
+app.constants.jsonpErrorTimer = 5000;

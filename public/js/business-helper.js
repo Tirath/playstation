@@ -9,10 +9,11 @@ app.getGames = function (query, url) {
 
 	if (!query && !url) return false;
 
-	var callback = "&callback=app.response",
+	var constants = app.constants,
+		callback = "&callback=app.response",
 		cacheBuster = "&time=" + new Date().getTime();  // prevent cache issue if any
 
-	app.script = document.createElement(app.constants.script);
+	app.script = document.createElement(constants.script);
 
 	app.script.type='text/javascript';
 	app.script.src = url || "https://api.twitch.tv/kraken/search/streams?limit=5&offset=0&query=" + query;  // search or pagination
@@ -27,7 +28,7 @@ app.getGames = function (query, url) {
 	// error scenario
 	app.jsonpTimer = setTimeout(function () {
 		app.response({});
-	}, 5000);
+	}, constants.jsonpErrorTimer);
 
 	return false;
 };
